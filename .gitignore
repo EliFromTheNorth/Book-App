@@ -7,6 +7,8 @@ book-app/.angular/
 BookApi/bin/
 BookApi/obj/
 BookApi/books.db
+BookApi/books.db-shm
+BookApi/books.db-wal
 
 # General
 .DS_Store
