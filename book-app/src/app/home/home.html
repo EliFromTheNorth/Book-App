@@ -1,0 +1,40 @@
+<div class="container d-flex flex-column align-items-center py-4">
+
+  <h2 class="mb-3">Mina böcker</h2>
+
+  <button class="btn btn-primary mb-4 fs-5 fw-bold" routerLink="/add-book">Lägg till ny bok</button>
+
+  <ul class="list-unstyled w-100 d-flex flex-column align-items-center gap-2">
+    <li *ngFor="let book of books" class="book-item d-flex align-items-center gap-3 border border-3 rounded-5 px-4 py-2">
+      <div class="d-flex flex-column book-text-col">
+        <span class="fw-bold fs-4">{{ book.title }}</span>
+        <span class="fs-5">{{ book.author }}, {{ book.publishDate }}</span>
+      </div>
+      <div class="d-flex gap-3 ms-auto">
+        <button class="btn btn-link btn-edit btn-icon p-1 border-0 fs-2" [routerLink]="['/edit-book', book.id]"><i class="fa-regular fa-pen-to-square"></i></button>
+        <button class="btn btn-link btn-icon p-1 text-danger border-0 fs-2" (click)="deleteBook(book.id!, book.title)"><i class="fa-regular fa-trash-can"></i></button>
+      </div>
+    </li>
+  </ul>
+
+</div>
+
+<!-- Delete confirmation modal -->
+<div class="modal-backdrop fade show" *ngIf="showDeleteModal" (click)="cancelDelete()"></div>
+<div class="modal fade show d-block" *ngIf="showDeleteModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content rounded-4">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold">Ta bort bok</h5>
+        <button type="button" class="btn-close" (click)="cancelDelete()"></button>
+      </div>
+      <div class="modal-body">
+        Är du säker på att du vill ta bort <strong>"{{ pendingDeleteTitle }}"</strong>?
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-secondary rounded-pill" (click)="cancelDelete()">Avbryt</button>
+        <button type="button" class="btn btn-danger rounded-pill" (click)="confirmDelete()">Ta bort</button>
+      </div>
+    </div>
+  </div>
+</div>

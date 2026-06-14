@@ -1,0 +1,25 @@
+.citat-item {
+  border-color: #5D4037 !important;
+  width: 90%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .citat-item {
+    width: 50%;
+  }
+}
+
+.citat-text {
+  font-style: italic;
+}
+
+.citat-text-col {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.citat-text-col span {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}

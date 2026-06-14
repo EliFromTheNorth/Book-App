@@ -1,0 +1,27 @@
+<div class="position-relative d-flex flex-column align-items-center py-4 px-3 px-md-0">
+  <button class="btn btn-link btn-back position-absolute top-0 start-0 fs-1 border-0" routerLink="/"><i class="fa-solid fa-circle-left"></i></button>
+  <h2>Lägg till ny bok</h2>
+
+  <form class="py-5 col-12 col-md-7 col-lg-5" (ngSubmit)="onSubmit()" #bookForm="ngForm">
+    <div class="mb-3">
+      <label class="form-label" for="title">Titel</label>
+      <input class="form-control" id="title" name="title" [(ngModel)]="book.title" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="author">Författare</label>
+      <input class="form-control" id="author" name="author" [(ngModel)]="book.author" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="publishDate">Publiceringsår</label>
+      <input class="form-control w-25" id="publishDate" name="publishDate" type="text"
+             pattern="[0-9]{4}" [(ngModel)]="book.publishDate" #publishDateField="ngModel" required />
+      <div *ngIf="publishDateField.invalid && (publishDateField.touched || publishDateField.dirty)" class="text-danger small mt-1">
+        Ogiltigt format, ange ett fullständigt år
+      </div>
+    </div>
+
+    <button class="btn btn-primary w-100 my-5 fs-5 fw-bold" type="submit" [disabled]="bookForm.invalid">Lägg till</button>
+  </form>
+</div>

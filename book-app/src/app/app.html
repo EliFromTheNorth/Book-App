@@ -1,0 +1,61 @@
+@if (isLoggedIn()) {
+<!-- MOBILE NAVBAR (hidden on desktop) -->
+<div class="d-md-none" style="background: #FEE5C5; padding: 16px 16px 0; position: relative;">
+
+  <div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="nav-title fw-bold mb-0">Min bokhylla</h1>
+    <button (click)="logout()" class="btn fw-bold" style="border: 1.5px solid #E67E22; color: #E67E22; font-size: 15px; padding: 6px 14px; border-radius: 6px;">Logga ut</button>
+  </div>
+
+  <!-- lying books -->
+  <div class="d-flex flex-column align-items-center">
+
+    <!-- Böcker button -->
+    <button routerLink="/" class="btn fw-bold btn-bocker w-75" style="margin-bottom: -5px;">Böcker</button>
+
+    <!-- middle decorative book -->
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 44" style="width: 65%; height: 36px; display: block;">
+      <rect x="0" y="0" width="400" height="44" rx="22" fill="#F5A623"/>
+      <rect x="365" y="0" width="35" height="44" fill="#F5A623"/>
+      <rect x="22" y="6" width="378" height="32" rx="6" fill="#FEFAE0"/>
+    </svg>
+
+    <!-- Citat button -->
+    <button routerLink="/citat" class="btn btn-citat fw-bold w-75" style="margin-top: -6px; ">Citat</button>
+
+  </div>
+
+  <!-- wooden shelf -->
+  <div style="height: 14px; background: #A0522D; border-radius: 2px; position: relative;">
+    <div style="position: absolute; top: 0; left: 0; right: 0; height: 4px; background: #C87A45; border-radius: 2px;"></div>
+  </div>
+  <div class="d-flex justify-content-between px-4">
+    <div style="width: 12px; height: 16px; background: #8B4513; border-radius: 0 0 2px 2px;"></div>
+    <div style="width: 12px; height: 16px; background: #8B4513; border-radius: 0 0 2px 2px;"></div>
+  </div>
+
+</div>
+
+<!-- DESKTOP NAVBAR (hidden on mobile) -->
+<div class="d-none d-md-block position-relative overflow-hidden" style="min-height: 300px; background-color: #FEE5C5">
+
+  <app-bookshelf />
+
+  <nav class="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center gap-3">
+    <h1 class="nav-title fw-bold mb-2">Min bokhylla</h1>
+    <div class="d-flex flex-column align-items-center">
+      <button routerLink="/" class="btn btn-bocker">Böcker</button>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 45" style="display: block; width: min(400px, 85vw); height: auto;">
+        <rect x="0" y="0" width="398" height="44" rx="22" fill="#F5A623"/>
+        <rect x="185" y="0" width="45" height="44" fill="#F5A623"/>
+        <rect x="22" y="6" width="376" height="32" rx="12" fill="#FEFAE0"/>
+      </svg>
+      <button routerLink="/citat" class="btn btn-citat fw-bold">Citat</button>
+    </div>
+    <button (click)="logout()" class="btn btn-secondary fw-bold fs-5 position-absolute" style="top: 10px; right: 10px;">Logga ut</button>
+  </nav>
+
+</div>
+}
+
+<router-outlet></router-outlet>

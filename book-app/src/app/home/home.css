@@ -1,0 +1,21 @@
+﻿.book-item {
+  border-color: #FB923C !important;
+  width: 90%;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .book-item {
+    width: 50%;
+  }
+}
+
+.book-text-col {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.book-text-col span {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}

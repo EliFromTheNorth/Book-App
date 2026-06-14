@@ -1,0 +1,22 @@
+<div class="d-flex flex-column align-items-center min-vh-100 px-3 px-md-0 pt-5">
+
+  <h1 class="nav-title fw-bold mb-5 text-center" style="font-size: clamp(2.5rem, 10vw, 5rem);">Min Bokhylla</h1>
+
+  <form style="width: 100%; max-width: 420px;" (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="mb-3">
+      <label class="form-label" for="username">Användarnamn</label>
+      <input class="form-control" id="username" name="username" [(ngModel)]="username" required />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label" for="password">Lösenord</label>
+      <input class="form-control" id="password" name="password" type="password" [(ngModel)]="password" required />
+    </div>
+
+    <div *ngIf="error" class="text-danger mb-3">{{ error }}</div>
+
+    <button class="btn btn-primary w-100 fs-5 fw-bold" type="submit" [disabled]="loginForm.invalid">Logga in</button>
+  </form>
+
+  <p>Har du inget konto? <a routerLink="/register">Registrera dig här</a></p>
+</div>
