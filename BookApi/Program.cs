@@ -12,7 +12,7 @@ builder.Services.AddCors(options =>
 {
     options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:4200")
+        policy.WithOrigins("http://localhost:4200", "https://book-app-mu-ten.vercel.app")
               .AllowAnyHeader()
               .AllowAnyMethod();
     });
