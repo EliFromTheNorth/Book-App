@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx ng *)",
+      "Bash(dotnet add *)",
+      "Bash(Remove-Item *)"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+# Angular
+book-app/node_modules/
+book-app/dist/
+book-app/.angular/
+
+# .NET
+BookApi/bin/
+BookApi/obj/
+BookApi/books.db
+
+# General
+.DS_Store
