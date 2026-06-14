@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 export interface Citat {
   id?: number;
@@ -11,7 +12,7 @@ export interface Citat {
   providedIn: 'root',
 })
 export class CitatService {
-  private apiUrl = 'http://localhost:5088/citater';
+  private apiUrl = `${environment.apiUrl}/citater`;
 
   constructor(private http: HttpClient) {}
 

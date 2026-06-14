@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from '../environments/environment';
 
 export interface Book {
   id?: number;
@@ -12,7 +13,7 @@ export interface Book {
   providedIn: 'root',
 })
 export class BookService {
-  private apiUrl = 'http://localhost:5088/books';
+  private apiUrl = `${environment.apiUrl}/books`;
 
   constructor(private http: HttpClient) {}
 
